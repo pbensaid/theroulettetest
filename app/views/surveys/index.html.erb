@@ -1,0 +1,41 @@
+<% content_for :bodyid do %>id='index'<% end %>
+
+
+<% if params[:adminkey] == "claytonia" %>
+
+<div class="survey-table">
+  <h1>THE ROULETTE TEST</h1>
+  <table style="margin-top:40px;">
+    <tbody>
+    <% @surveys.each do |survey| %>
+    <tr>
+      <td><%= survey.name %></td>
+      <td><%= link_to 'Show', survey_path(survey, mysecretcode: survey.mysecretcode) %></td>
+      <td><%= link_to 'Edit', edit_survey_path(survey, mysecretcode: survey.mysecretcode) %></td>
+      <td><%= link_to "X", survey, remote: true, method: :delete, data: { confirm: 'Are you sure?' }  %></td>
+    </tr>
+    <% end %>
+    <tr>
+    </tr>
+    </tbody>
+  </table>
+  <%= paginate @surveys %>
+</div>
+
+<% else %>
+
+<div class="intro-container">
+  <div class="intro-content">
+    <div class="header">
+      <h1>The Roulette Test</h1>
+    </div>
+    <div class="description">
+      <p>The easiest way to collect feedback on ideas for names, titles or even concepts</p>
+    </div>
+    <%= link_to new_survey_path do %>
+    <div class="button button-lrg button-red">Create a new test</div>
+    <% end %>
+  </div>
+</div>
+
+<% end %>

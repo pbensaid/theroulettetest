@@ -1,0 +1,56 @@
+<% content_for :bodyid do %>id='show'<% end %>
+
+<div class="test-container">
+
+  <div class="header-container">
+    <div class="brand-bar">
+      <div class="logo"><%= link_to 'The Roulette Test', surveys_path %></div>
+      <%= render 'tools' %>
+    </div>
+    <h1><%= @survey.name %></h1>
+  </div>
+  <div class="options-container">
+
+    <% @sets_count.times do |i| %>
+      <% set_count = i+1 %>
+      <% start_set_counter = ((i)*3) %>
+      <% end_set_counter = (start_set_counter+2) %>
+
+      <div class="options-set options-set-<%= i + 1 %> <%= 'show' if i==0  %>">
+
+        <div class="step-title">
+          <em>Step <%= i+1 %>/<%= @sets_count %></em>&nbsp;&nbsp;Which of these three do you like best?
+        </div>
+
+        <% @shuffled_options[start_set_counter..end_set_counter].each_with_index do |option,index| %>
+          <div class="option-block option-<%= index + 1 %> "><%=h option.content %>
+            <%= form_for(@vote, :remote => true) do |f| %>
+            <%= f.hidden_field "option_id", :value => option.id %>
+            <%= hidden_field_tag "set_count", set_count %>
+            <%= submit_tag "vote" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+
+      <% if i == @sets_count-1  %>
+        <% if  params[:mysecretcode] %>
+          <div class="options-set options-set-<%= i + 2 %>">
+            <h1>Congrats your test is ready to go.</h1><br>
+            - Share this link with people you want taking the test.<br>
+            - View results here<br>
+            - Edit your test<br>
+            Thanks for using The Roulette test.
+          </div>
+        <% else %>
+          <div class="options-set options-set-<%= i + 2 %>">
+            <h1 class="end-message" style="margin-top:120px;">Awesome. Thanks for your input.</h1>
+          </div>
+        <% end %>
+      <% end %>
+
+    <% end %>
+  </div>
+
+</div>

@@ -1,0 +1,25 @@
+<% content_for :bodyid do %>id='index'<% end %>
+
+<% if params[:adminkey] == "claytonia" %>
+<div class="survey-table">
+  <table style="margin-top:140px;">
+    <tbody>
+    <% @surveys.each do |survey| %>
+    <tr>
+      <td><%= survey.name %></td>
+      <td><%= link_to 'Show', survey_path(survey, mysecretcode: survey.mysecretcode) %></td>
+      <td><%= link_to 'Edit', edit_survey_path(survey, mysecretcode: survey.mysecretcode) %></td>
+      <td><%= link_to "X", survey, remote: true, method: :delete, data: { confirm: 'Are you sure?' }  %></td>
+    </tr>
+    <% end %>
+    <tr>
+    </tr>
+    </tbody>
+  </table>
+
+  <%= paginate @surveys %>
+</div>
+<% else %>
+    Nothing to see here. Move along.
+<% end %>
+

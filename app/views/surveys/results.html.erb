@@ -1,0 +1,17 @@
+<% content_for :bodyid do %>id='results'<% end %>
+
+<div class="test-container">
+
+  <div class="header-container">
+    <div class="brand-bar">
+      <div class="logo"><%= link_to 'The Roulette Test', surveys_path %></div>
+      <%= render 'tools' %>
+    </div>
+    <h1><em>You asked</em> <br/><%= @survey.name %></h1>
+    <div class="step-title">and the people you asked chose...</div>
+  </div>
+  <% for option in @survey.options.order("votes_count DESC") %>
+    <div class="option-block"><%=h option.content %> <span class="count"><%= option.votes.count %></span></div>
+  <% end %>
+
+</div>

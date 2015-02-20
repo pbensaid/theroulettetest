@@ -1,0 +1,16 @@
+<% content_for :bodyid do %>id='edit'<% end %>
+
+<div class="test-container">
+
+  <div class="header-container">
+    <div class="brand-bar">
+      <div class="logo"><%= link_to 'The Roulette Test', surveys_path %></div>
+      <%= render 'tools' %>
+    </div>
+    <h1>Edit your test</h1>
+  </div>
+
+  <div class="test-form">
+    <%= render 'form' %>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<%= form_for @survey do |f| %>
+  <% if @survey.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this test from being updated:</h2>
+
+      <ul>
+      <% @survey.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="survey-name">
+    <div class="fields">
+      <h2 class="explanatory-label">Describe what you're testing in a few words</h2>
+      <%= f.text_area :name, :rows => 3, :placeholder=> "e.g. Please help me choose a new name for... "%>
+      <%= f.hidden_field :mysecretcode, :value=>SecureRandom.urlsafe_base64(5) %>
+    </div>
+  </div>
+  <div class="survey-options">
+    <h2 class="explanatory-label">Add the 3 options you want to test</h2>
+    <%= f.fields_for :options do |builder| %>
+      <%= render 'option_fields', f: builder %>
+    <% end %>
+    <%= link_to_add_fields 'Add 3 more options', f, :options %>
+    <!--%= link_to 'Remove 3 options', '#', class: 'remove_fields' %-->
+  </div>
+
+  <div class="actions">
+    <%= f.submit  :class => "button button-lrg button-red" %>
+    <div class="button button-med button-grey"><%= link_to 'Cancel', surveys_path %></div>
+  </div>
+<% end %>
