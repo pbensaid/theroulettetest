@@ -1,0 +1,6 @@
+<%= form_for(:vote, :remote => true) do |f| %>
+<%= f.hidden_field "option_id", :value => runoff[0][1] %>
+<%= hidden_field_tag "set_count", sets_count + 1 %>
+<%= hidden_field_tag "sets_count", sets_count + 1 %>
+<%= submit_tag runoff[1][1] %>
+<% end %>

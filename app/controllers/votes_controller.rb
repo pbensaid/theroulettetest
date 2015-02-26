@@ -14,33 +14,36 @@ class VotesController < ApplicationController
   end
 
   def create
+    @content = params[:commit]
+    @sets_count = params[:sets_count].to_i
+    @set_count = params[:set_count].to_i
     @vote = Vote.new(vote_params)
     @option = Option.find(@vote.option_id)
     @survey = Survey.find(@option.survey_id)
-    @set_count = params[:set_count].to_i
+    @runoff = []
+    @runoff << [:id, @vote.option_id]
+    @runoff << [:content, params[:commit]]
+    is_this_the_runoff
 
     @vote.save
-    respond_with @vote, survey: @survey, set_count: @set_count, layout: !request.xhr?
-    @set_count += 1
-
-    ## TO TIME BOX VOTING
-    #uid = params[:vote][:user_id]
-    #@extant = Vote.find(:last, :conditions => ["item_id = ? AND user_id = ?", item, uid])
-    #last_vote_time = @extant.created_at unless @extant.blank?
-    #curr_time = Time.now
-    #if ((@extant && curr_time - last_vote_time >= 24.hours) || @extant.blank?)
-    #...
-    #else
-    #  render :js =>  "alert('You may vote once every 24 hours for any one item.');"
-    #end
-
+    respond_with @vote, survey: @survey, set_count: @set_count, sets_count: @sets_count, runoff: @runoff, runoff_set: @runoff_set, layout: !request.xhr?
   end
 
   private
 
+    def is_this_the_runoff
+      puts "@set_count:'#{@set_count}'"
+      puts "@sets_count:'#{@sets_count}'"
+      if @set_count == @sets_count + 1
+        @runoff_set = true
+      else
+        @runoff_set = false
+      end
+      puts "@runoff_set:'#{@runoff_set.inspect}'"
+    end
+
     def vote_params
       params.require(:vote).permit(:id, :option_id, :set_count)
     end
-
 
 end

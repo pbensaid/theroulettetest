@@ -1,0 +1,28 @@
+<% content_for :bodyid do %>id='share'<% end %>
+
+<div class="test-container">
+
+  <div class="header-container">
+    <div class="brand-bar">
+      <div class="logo"><%= link_to 'The Roulette Test', surveys_path %></div>
+      <%= render 'tools' %>
+    </div>
+    <h1><em>Manage and share your test</em></h1>
+  </div>
+
+  <div class="options-container">
+    <div class="owner-end-frame">
+
+      <div class="end-frame-row">
+        <p>1. Share this link to get feedback</p>
+        <input type="textarea" value="<%= full_share_link(@survey,nil) %>"></input>
+      </div>
+      <div class="end-frame-row">
+        <p>2. Save this PRIVATE link to check the results</p>
+        <input type="textarea" value="<%= url_for [:results, @survey, mysecretcode: @survey.mysecretcode, only_path:false] %>"></input>
+      </div>
+
+      Thanks for using The Roulette test.
+    </div>
+  </div>
+</div>

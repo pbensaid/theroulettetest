@@ -13,4 +13,9 @@ module ApplicationHelper
     end
     link_to(name, '#', class: "add_fields", data: {id: ids[1..-1], fields: all_fields.gsub("\n", "")})
   end
+
+  def cp(path)
+    "current" if current_page?(path)
+  end
+
 end

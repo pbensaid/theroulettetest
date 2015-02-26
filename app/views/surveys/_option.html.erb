@@ -1,0 +1,8 @@
+<div class="option-block option-<%= index + 1 %> ">
+  <%= form_for(vote, :remote => true) do |f| %>
+  <%= f.hidden_field "option_id", :value => option.id %>
+  <%= hidden_field_tag "set_count", set_count %>
+  <%= hidden_field_tag "sets_count", sets_count %>
+  <%= submit_tag option.content %>
+  <% end %>
+</div>

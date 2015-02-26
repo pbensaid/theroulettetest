@@ -1,2 +1,5 @@
 $('.options-set-<%= @set_count %>').removeClass("show").append("");
 $('.options-set-<%= (@set_count +1) %>').addClass("show").append("");
+<% unless @runoff_set %>
+  $('#runoff-option-<%= @set_count %>').append( "<%= escape_javascript(render( :partial => "surveys/option_runoff", :locals => {:runoff => @runoff, :sets_count => @sets_count, :set_count => @sets_count})).html_safe %>" );
+<% end %>

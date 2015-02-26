@@ -1,7 +1,8 @@
 <div class="tools">
   <% if params[:mysecretcode] == @survey.mysecretcode %>
-  <%= link_to 'Edit this test', edit_survey_path(@survey, mysecretcode: @survey.mysecretcode) %> &nbsp;&nbsp;&nbsp;
-  <%= link_to 'Delete this test', survey_path(@survey), method: :delete, data: { confirm: 'Are you sure?' } %> &nbsp;&nbsp;&nbsp;
-  <%= link_to 'View results', [:results, @survey, mysecretcode: @survey.mysecretcode] %>
+  <%= link_to 'View', survey_path(@survey, mysecretcode: @survey.mysecretcode), class: cp(survey_path) %> &nbsp;&nbsp;&nbsp;
+  <%= link_to 'Edit', edit_survey_path(@survey, mysecretcode: @survey.mysecretcode), class: cp(edit_survey_path) %> &nbsp;&nbsp;&nbsp;
+  <%= link_to 'Share', share_survey_path(@survey, mysecretcode: @survey.mysecretcode), class: cp(share_survey_path) %> &nbsp;&nbsp;&nbsp;
+  <%= link_to 'Test results', [:results, @survey, mysecretcode: @survey.mysecretcode], class: cp(results_survey_path) %>
   <% end %>
 </div>

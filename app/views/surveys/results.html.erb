@@ -8,7 +8,7 @@
       <%= render 'tools' %>
     </div>
     <h1><em>You asked</em> <br/><%= @survey.name %></h1>
-    <div class="step-title">and the people you asked chose...</div>
+    <div class="step-title">And the people you asked chose...</div>
   </div>
   <% for option in @survey.options.order("votes_count DESC") %>
     <div class="option-block"><%=h option.content %> <span class="count"><%= option.votes.count %></span></div>

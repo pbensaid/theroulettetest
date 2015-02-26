@@ -1,0 +1,31 @@
+<% if  params[:mysecretcode] %>
+
+<div class="options-set options-set-<%= sets_count + 2 %>">
+  <div class="owner-end-frame">
+    <h1>That's it! </h1><br>
+    <div class="end-frame-row">
+      <p>If it looks good, continue to share  your test</p>
+      <%= link_to share_survey_path(@survey, mysecretcode: @survey.mysecretcode) do %>
+      <div class="button button-med button-red">
+        Continue
+      </div>
+      <% end %>
+    </div>
+    <div class="end-frame-row">
+      <p>Or edit your test here</p>
+      <%= link_to edit_survey_path(@survey, mysecretcode: @survey.mysecretcode), class: cp(edit_survey_path) do %>
+      <div class="button button-med button-grey">
+        Edit your test
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% else %>
+
+<div class="options-set options-set-<%= sets_count + 2 %> vcenter">
+  <h1>Awesome. Thanks for your input.</h1>
+</div>
+
+<% end %>

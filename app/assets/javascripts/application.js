@@ -15,3 +15,6 @@
 //= require turbolinks
 //= require_tree .
 
+$('.delete_test').bind('ajax:success', function() {
+  $(this).closest('tr').fadeOut();
+  });

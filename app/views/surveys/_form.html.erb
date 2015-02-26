@@ -28,7 +28,14 @@
   </div>
 
   <div class="actions">
-    <%= f.submit  :class => "button button-lrg button-red" %>
-    <div class="button button-med button-grey"><%= link_to 'Cancel', surveys_path %></div>
+    <%= f.submit "Try it out", :class => "button button-lrg button-red" %>
+    <%= link_to surveys_path do %>
+      <div class="button button-med button-grey">Cancel</div>
+    <% end %>
+    <% unless @survey.id == nil %>
+      <div class="button button-med button-grey"><%= (link_to 'Delete this test', survey_path(@survey), method: :delete, data: { confirm: 'Are you sure?' }) %></div>
+    <% end %>
   </div>
+  <br/>
+
 <% end %>
