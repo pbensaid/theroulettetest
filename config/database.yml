@@ -8,7 +8,7 @@ development:
   encoding: utf8
   database: roulettetest-dev
   pool: 5
-  username:
+  username: r1
   password:
 
 test: &TEST
@@ -16,7 +16,7 @@ test: &TEST
   encoding: utf8
   database: roulettetest_test
   pool: 5
-  username:
+  username: r1
   password:
 
 production:
