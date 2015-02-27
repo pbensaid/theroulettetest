@@ -15,5 +15,8 @@ Rails.application.routes.draw do
   get "/errors/not_found" => 'errors#not_found'
   get "/errors/server_error" => 'errors#server_error'
 
+  #unless Rails.application.config.consider_all_requests_local
+  #  match '*not_found', to: 'errors#error_404'
+  #end
 
 end
