@@ -1,6 +1,10 @@
 <div class="options-set options-set-<%= set_count %> <%= (set_count == 1) ? 'show' : '' %>">
 
-  <div class="step-title"><em>Batch <%= set_count %> of <%= @sets_count %></em></div>
+  <% unless @sets_count == 1 %>
+    <div class="step-title">
+      Choose one from this set <em>(<%= set_count %> of <%= @sets_count %>)</em>
+    </div>
+  <% end %>
   <% options.each_with_index do |option,index| %>
     <%= render 'option', option: option, set_count: set_count, index: index, sets_count: @sets_count, vote: @vote %>
   <% end %>

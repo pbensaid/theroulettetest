@@ -14,7 +14,11 @@
   <div class="survey-name">
     <div class="fields">
       <h2 class="explanatory-label">Describe what you're testing in a few words</h2>
-      <%= f.text_area :name, :rows => 3, :placeholder=> "e.g. Please help me choose a new name for... "%>
+      <% if @survey.name.presence %>
+        <%= f.text_area :name, :rows => 3, :placeholder=> "e.g. Please help me choose a new name for... " %>
+      <% else %>
+        <%= f.text_area :name, :rows => 3, :placeholder=> "e.g. Please help me choose a new name for... ", :value=> "Please help me choose a new name for " %>
+      <% end %>
       <%= f.hidden_field :mysecretcode, :value=>SecureRandom.urlsafe_base64(5) %>
     </div>
   </div>
@@ -28,7 +32,11 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Try it out", :class => "button button-lrg button-red" %>
+    <% if @survey.name.presence %>
+      <%= f.submit "Update your test", :class => "button button-lrg button-red" %>
+    <% else %>
+      <%= f.submit "Try out your test", :class => "button button-lrg button-red" %>
+    <% end %>
     <%= link_to surveys_path do %>
       <div class="button button-med button-grey">Cancel</div>
     <% end %>

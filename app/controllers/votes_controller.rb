@@ -32,8 +32,6 @@ class VotesController < ApplicationController
   private
 
     def is_this_the_runoff
-      puts "@set_count:'#{@set_count}'"
-      puts "@sets_count:'#{@sets_count}'"
       if @set_count == @sets_count + 1
         @runoff_set = true
       else

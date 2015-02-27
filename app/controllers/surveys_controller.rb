@@ -37,7 +37,7 @@ class SurveysController < ApplicationController
   def update
     respond_to do |format|
       if @survey.update(survey_params)
-        format.html { redirect_to @survey, notice: 'Your test was successfully updated' }
+        format.html { redirect_to share_survey_path(@survey, mysecretcode: @survey.mysecretcode), notice: 'Your test was updated' }
         format.json { render :show, status: :ok, location: @survey }
       else
         format.html { render :edit }

@@ -20,11 +20,11 @@
 
     <% @sets_count.times do |set_count| %>
       <%= render 'option_set', options: @shuffled_options[start_set_counter..end_set_counter], set_count: (set_count + 1) %>
-      <% start_set_counter += 2 %>
-      <% end_set_counter += 2 %>
+      <% start_set_counter += 3 %>
+      <% end_set_counter += 3 %>
     <% end %>
 
-    <%= render 'options_runoff_set', runoff: runoff, sets_count: @sets_count %>
+    <%= render 'options_runoff_set', runoff: runoff, sets_count: @sets_count unless @sets_count == 1 %>
     <%= render 'options_end_frame', sets_count: @sets_count %>
 
   </div>

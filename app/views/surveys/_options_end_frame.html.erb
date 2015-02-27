@@ -1,6 +1,13 @@
+<% if sets_count == 1
+     end_frame_count = 1
+   else
+     end_frame_count = 2
+   end
+%>
+
 <% if  params[:mysecretcode] %>
 
-<div class="options-set options-set-<%= sets_count + 2 %>">
+<div class="options-set options-set-<%= sets_count + end_frame_count %>">
   <div class="owner-end-frame">
     <h1>That's it! </h1><br>
     <div class="end-frame-row">
@@ -24,7 +31,7 @@
 
 <% else %>
 
-<div class="options-set options-set-<%= sets_count + 2 %> vcenter">
+<div class="options-set options-set-<%= sets_count + end_frame_count %> vcenter">
   <h1>Awesome. Thanks for your input.</h1>
 </div>
 

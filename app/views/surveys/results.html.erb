@@ -11,7 +11,7 @@
     <div class="step-title">And the people you asked chose...</div>
   </div>
   <% for option in @survey.options.order("votes_count DESC") %>
-    <div class="option-block"><%=h option.content %> <span class="count"><%= option.votes.count %></span></div>
+    <div class="option-block"><%=h option.content %> <span class="count"><%= option.votes.count %> votes</span></div>
   <% end %>
 
 </div>

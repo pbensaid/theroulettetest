@@ -1,6 +1,5 @@
 <% content_for :bodyid do %>id='index'<% end %>
 
-
 <% if params[:adminkey] == "claytonia" %>
 
 <div class="survey-table">
@@ -13,7 +12,6 @@
       <td><%= link_to 'Show', survey_path(survey, mysecretcode: survey.mysecretcode) %></td>
       <td><%= link_to 'Edit', edit_survey_path(survey, mysecretcode: survey.mysecretcode) %></td>
       <td><%= link_to "X", survey, remote: true, method: :delete, class: 'delete_test'   %></td>
-
     </tr>
     <% end %>
     <tr>
@@ -31,7 +29,7 @@
       <h1>The Roulette Test</h1>
     </div>
     <div class="description">
-      <p>The fastest, best survey tool for testing names and concepts. <a href="">Learn more.</a></p>
+      <p>The fastest, simplest survey tool for testing names and concepts. <%= link_to 'Learn more', :controller=> 'pages', :action => 'show', :id => 'about' %></p>
     </div>
     <%= link_to new_survey_path do %>
     <div class="button button-lrg button-red">Create a new test</div>
