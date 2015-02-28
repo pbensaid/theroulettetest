@@ -221,7 +221,7 @@ p { margin: 0.5rem 0; }
   font-size: 1.2rem; }
 
 .header-container {
-  background: #444 url("footer_lodyas.png");
+  background: #444 url("http://www.roulettetest.com/assets/footer_lodyas-0f6cab02e1891a8b7adbdf43949d304b.png");
 }
 
 .header-container.full-page{ height:1600px; }
@@ -236,7 +236,7 @@ p { margin: 0.5rem 0; }
 
 /** HOMEPAGE STYLES **/
 body#index {
-  background: #444 url("footer_lodyas.png");
+  background: #444 url("http://www.roulettetest.com/assets/footer_lodyas-0f6cab02e1891a8b7adbdf43949d304b.png");
   color:#fff;}
 
 #index .intro-content  {
