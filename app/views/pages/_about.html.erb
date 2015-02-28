@@ -16,7 +16,36 @@
     <div class="logo"><%= link_to 'The Roulette Test', surveys_path %></div>
   </div>
   <h1>About</h1>
-  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+  <p class="tldr">
+    Tl;dr: To get a response that simulates a real-life decision, show 3 options at a time with minimal context.
+  </p>
+  <p>
+    The Roulette Test is built on a simple premise: That testing for names is over-complicated and ineffective. Generally, a name test might involve
+    an expensive focus group or a complicated survey. It might be done one-on-one so that testers can ask follow up questions to
+    evaluate sentiment. And in a worst case scenario, if the person doing a test is the entrepreneur themselves, it might be riddled with bias.
+  </p>
+  <p>
+    In the real world though, people evaluate names in an incredibly superficial way. IF they care at all, they might make a snap judgement about a name and move
+    on. Generally, names don't factor into our decisions or opinions about products or companies until they have been cemented as a brand. At which point
+    it's too late.
+  </p>
+  <p>
+    The Roulette Test is an attempt to solve that dilemma. By giving testers a minimal amount of context (i.e. help me choose names for a shoe
+    store) you simluate the minimal information someone might have on the street or from what a friend told you. (There are shoes
+    in the window so it must be a shoe store). Then by showing them quick alternatives to pick from, you lower the bar to a reasonable point
+    where a response is a gut reaction. Presenting the winning choices in a runoff at the end cements the winner.
+  </p>
+  <p>
+    Repeat the process randomly and we believe you can objectively determine which name you're considering is best.
+  </p>
+  <p>
+    I hope you find it useful. If you have any questions please email me at hello at roulettetest.com.<br>
+    <%= link_to "Phillip Bensaid", "http://www.phillipbensaid.com" %>
+  </p>
+  <%= link_to new_survey_path do %>
+  <div class="button button-lrg button-red">Create a new test</div>
+  <% end %>
+
 </div>
 
 </body>

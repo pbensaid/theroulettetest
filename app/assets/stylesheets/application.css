@@ -471,4 +471,7 @@ input, textarea {
 @-o-keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
 
 /** ABOUT PAGE **/
-#about p {color:#ccc;font-size:2.2rem;line-height:160%;text-align:left;padding:10%;}
+#about p {color:#ccc;font-size:2.2rem;line-height:160%;text-align:left;padding:0 10% 3rem;}
+#about p.tldr {color:#fff;font-size:1.2rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1rem;}
+#about .header-container.full-page h1 {padding-top:15%;}
+#about .button {margin-left: 10%;}
